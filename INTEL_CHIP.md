@@ -78,14 +78,15 @@ nano .zshrc
 ##### Copy and paste:
 
 ```
+export JAVA_HOME=$(/usr/libexec/java_home)
+export ANDROID_HOME=$HOME/Library/Android/sdk
+
 export PATH="$PATH":"$HOME/.pub-cache/bin"
 export PATH="$PATH":"$HOME/fvm/default/bin"
-export ANDROID_HOME=$HOME/Library/Android/sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/platform-tools
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
-export JAVA_HOME=$(/usr/libexec/java_home)
 ```
 ##### Save and exit (control + o -> Enter -> control + x)
 
@@ -114,10 +115,24 @@ cd /Applications/Android\ Studio.app/Contents/jre
 ln -s ../jre jdk
 ```
 ```
-ln -s ../jre jdk
 ln -s "/Library/Internet Plug-Ins/JavaAppletPlugin.plugin" jdk
 ```
 ##### Fix error "Flutter plugin not installed" and "Dart plugin not installed":
 ```
 ln -s ~/Library/Application\ Support/Google/AndroidStudio4.1/plugins ~/Library/Application\ Support/AndroidStudio4.1
 ```
+
+##### Because of your java version is newest, 
+##### Some error when run old project on android, let update your distributionUrl located on
+```
+\android\gradle\wrapper\gradle-wrapper.properties
+```
+##### And now update your android distribution which support your java version at
+<a href="https://services.gradle.org/distributions" target="_blank">https://services.gradle.org/distributions</a>
+``
+##### Or
+```
+https://services.gradle.org/distributions
+``
+```
+##### Note: select only .zip file
